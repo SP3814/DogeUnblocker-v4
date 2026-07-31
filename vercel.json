@@ -1,16 +1,21 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "./index.js",
-      "use": "@vercel/node"
-    }
-  ],
+  "framework": "remix",
+  "cleanUrls": true,
   "routes": [
-    
     {
-      "src": "/(.*)",
-      "dest": "/"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "dest": "/js/$1"
+    },
+    {
+      "src": "/(.*).json",
+      "dest": "/$1.json"
+    },
+    {
+      "handle": "filesystem"
     }
   ]
 }
